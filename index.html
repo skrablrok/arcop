@@ -1,171 +1,401 @@
-<!DOCTYPE html>
-<html lang="sl">
+<!doctype html>
+<html lang="sl" class="no-js">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ARCOP — Čiščenje objektov z dronom, poslovnih prostorov in generalno čiščenje</title>
-<meta name="description" content="ARCOP čisti objekte, steklene površine, sončne elektrarne in strehe z dronom. Čistimo tudi poslovne prostore in opravljamo generalna čiščenja.">
-<meta name="theme-color" content="#f3f2ee">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drone Cleaning Solutions | Čiščenje na višini z dronsko tehnologijo</title>
+  <meta name="description" content="Profesionalno čiščenje fasad, oken, sončnih elektrarn, streh in industrijskih objektov z dronom DJI Matrice 400. Brez odrov, varno, hitro in ugodno. Celotna Slovenija in EU.">
+  <meta name="theme-color" content="#070d1a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preload" href="models/cleaning-drone.glb" as="fetch" type="model/gltf-binary" crossorigin>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Drone Cleaning Solutions",
+    "description": "Čiščenje fasad, oken, sončnih elektrarn in streh z dronom.",
+    "telephone": "+386 40 123 456",
+    "email": "info@dronecleaningsolutions.si",
+    "areaServed": ["SI", "EU"],
+    "openingHours": "Mo-Fr 08:00-18:00"
+  }
+  </script>
 </head>
 <body>
-<a class="skip" href="#main">Preskoči na vsebino</a>
 
-<header id="hd">
-  <div class="wrap">
-    <a href="#top" class="mark" aria-label="ARCOP, na začetek">arcop<i></i></a>
-    <nav aria-label="Glavna navigacija">
-      <a href="#dron" class="ul">Čiščenje z dronom</a>
-      <a href="#storitve" class="ul">Storitve</a>
-      <a href="#vprasanja" class="ul">Vprašanja</a>
-      <a href="#kontakt" class="ul">Kontakt</a>
+<!-- ============ ICON SPRITE ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-drone" viewBox="0 0 64 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <ellipse cx="10" cy="7" rx="8" ry="2.2"/><ellipse cx="54" cy="7" rx="8" ry="2.2"/>
+      <path d="M10 9v4h44V9"/><path d="M10 13l12 6M54 13l-12 6"/>
+      <rect x="22" y="15" width="20" height="9" rx="4"/>
+      <circle cx="32" cy="31" r="6"/><circle cx="32" cy="31" r="2" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></symbol>
+    <symbol id="i-noscaffold" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 4v24M24 4v24M8 10h16M8 18h16M8 26h16M8 10l16 8M8 18l16 8"/><path d="M3 3l26 26" stroke-width="2.2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l10 4v8c0 7-4.5 11.5-10 14C10.5 26.5 6 22 6 15V7l10-4z"/><path d="M11.5 16l3.2 3.2L21 13"/></symbol>
+    <symbol id="i-coins" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="13" cy="7" rx="7" ry="3"/><path d="M6 7v5c0 1.7 3.1 3 7 3s7-1.3 7-3V7M6 12v5c0 1.7 3.1 3 7 3M6 17v5c0 1.7 3.1 3 7 3"/><ellipse cx="21" cy="19" rx="7" ry="3"/><path d="M14 19v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="16" cy="16" r="12"/><path d="M16 9v7l5 3"/><path d="M16 4v2M16 26v2M4 16h2M26 16h2"/></symbol>
+    <symbol id="i-leaf" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M27 5C12 5 5 11 5 20c0 3 1 5 2 7 2-1 4-1 7-1 9 0 13-8 13-21z"/><path d="M7 27C11 19 16 14 22 10"/></symbol>
+    <symbol id="i-building" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 28h22M8 28V7l9-3v24M17 10h7v18"/><path d="M11 9h3M11 13h3M11 17h3M11 21h3M20 14h1.5M20 18h1.5M20 22h1.5"/></symbol>
+    <symbol id="i-solar" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22l4-12h20l-4 12z"/><path d="M14 10l-2 12M21 10l-2 12M6 16h20"/><path d="M14 22v5M10 27h8"/></symbol>
+    <symbol id="i-roof" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20L16 8l13 12"/><path d="M7 16l9-8 9 8"/><path d="M8 18v8h16v-8"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 28V14l7 4v-4l7 4v-4l7 4V5h3v23z"/><path d="M8 23h2M14 23h2M20 23h2"/><path d="M2 28h28"/></symbol>
+    <symbol id="i-glass" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="20" height="24" rx="1"/><path d="M16 4v24M6 16h20"/><path d="M9 13l4-4M19 25l4-4"/></symbol>
+    <symbol id="i-inspect" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M20 8h9M7 8v3h18V8"/><rect x="12" y="11" width="8" height="5" rx="2"/><circle cx="16" cy="22" r="4"/><circle cx="16" cy="22" r="1.2" fill="currentColor"/></symbol>
+    <symbol id="i-target" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="15" cy="17" r="11"/><circle cx="15" cy="17" r="6.5"/><circle cx="15" cy="17" r="2" fill="currentColor"/><path d="M15 17L27 5M23 5h4v4"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 10-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h4l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A17 17 0 013 5a2 2 0 012-2z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="M3.5 6l8.5 7 8.5-7"/></symbol>
+    <symbol id="i-user" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="16" cy="10" r="5"/><path d="M6 28c0-6 4.5-10 10-10s10 4 10 10z"/></symbol>
+    <symbol id="i-handshake" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 13l6-5 5 2 4-2 5 1 8 4"/><path d="M8 8l-4 10 9 8c1 1 2.5 1 3.3 0 .8-.8.7-2-.1-2.8M30 17l-5 4"/><path d="M12 14l4-2 9 9c.8.8.8 2 0 2.8s-2 .8-2.8 0L18 20"/></symbol>
+    <symbol id="i-bulb" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20c-2-2-3.5-4.3-3.5-7.5a8.5 8.5 0 0117 0c0 3.2-1.5 5.5-3.5 7.5v3H11z"/><path d="M12 27h8M16 4V2M27 12h2M3 12h2"/></symbol>
+    <symbol id="i-office" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="11" rx="1"/><path d="M9 21h6M12 17v4"/><path d="M2 27h28M22 27V14h7v13"/><path d="M25 18h1M25 22h1"/></symbol>
+    <symbol id="i-sparkle" viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13h8v15H10z"/><path d="M12 13V9h4v4M16 9h4l3-3"/><path d="M12 18h4"/><path d="M25 14l1 2.5 2.5 1-2.5 1L25 21l-1-2.5-2.5-1 2.5-1zM6 4l.7 1.8L8.5 6.5l-1.8.7L6 9l-.7-1.8-1.8-.7 1.8-.7z"/></symbol>
+    <symbol id="i-fb"viewBox="0 0 24 24" fill="currentColor"><path d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l.5-4H14V8.6c0-.4.3-.6.7-.6z"/></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-tt" viewBox="0 0 24 24" fill="currentColor"><path d="M16 3c.4 2.4 1.9 4 4.5 4.2v3.4c-1.6 0-3.1-.5-4.4-1.3V16a6 6 0 11-6-6c.3 0 .7 0 1 .1v3.5a2.6 2.6 0 101.6 2.4V3z"/></symbol>
+    <symbol id="i-yt" viewBox="0 0 24 24" fill="currentColor"><path d="M22 8.2a3 3 0 00-2.1-2.1C18 5.6 12 5.6 12 5.6s-6 0-7.9.5A3 3 0 002 8.2 31 31 0 001.6 12c0 1.3.1 2.6.4 3.8a3 3 0 002.1 2.1c1.9.5 7.9.5 7.9.5s6 0 7.9-.5a3 3 0 002.1-2.1c.3-1.2.4-2.5.4-3.8s-.1-2.6-.4-3.8zM10 15.2V8.8l5.2 3.2z"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24" fill="currentColor"><path d="M4 9h3.6v11H4zM5.8 3.5a2 2 0 110 4.1 2 2 0 010-4.1zM9.8 9h3.4v1.5c.5-.9 1.7-1.8 3.5-1.8 3.7 0 4.3 2.4 4.3 5.5V20h-3.6v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V20H9.8z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="Drone Cleaning Solutions – domov">
+      <span class="logo-mark"><svg><use href="#i-drone"/></svg></span>
+      <span class="logo-text">
+        <strong>DRONE</strong>
+        <small>CLEANING <em>SOLUTIONS</em></small>
+      </span>
+    </a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Glavna navigacija">
+      <a href="#top" class="active">Domov</a>
+      <a href="#storitve">Storitve</a>
+      <a href="#o-nas">O nas</a>
+      <a href="#oprema">Oprema</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#arcop">ARCOP</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#kontakt" class="btn btn-yellow nav-cta-mobile">Pridobi ponudbo <svg><use href="#i-arrow"/></svg></a>
     </nav>
-    <a href="#kontakt" class="btn">Pošljite povpraševanje</a>
+
+    <a href="#kontakt" class="btn btn-yellow header-cta">Pridobi ponudbo <svg><use href="#i-arrow"/></svg></a>
+    <button class="burger" id="burger" aria-label="Odpri meni" aria-expanded="false" aria-controls="mainNav"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main id="main">
-<section class="hero" id="top">
-  <div class="fly" id="fly" aria-hidden="true"></div>
-  <div class="wrap">
-    <h1 aria-label="Čistimo objekte z dronom.">
-      <span class="ln"><span>Čistimo objekte</span></span>
-      <span class="ln"><span>z dronom<span class="dot">.</span></span></span>
-    </h1>
-    <div class="hero-foot">
-      <p>ARCOP čisti steklene fasade, okna na višini, sončne elektrarne in strehe <em>z dronom</em>. Za podjetja čistimo tudi poslovne prostore in opravljamo generalna čiščenja.</p>
-      <div class="fact"><b>Pilot ostane na tleh.</b>Za čiščenje objekta ne potrebujemo odra, dvigala ali zapore pločnika.</div>
-      <div class="act">
-        <a href="#kontakt" class="btn">Pošljite povpraševanje</a>
-        <a href="#dron" class="ul">Poglejte, kako poteka čiščenje</a>
-      </div>
-      <span class="down" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v15M5.5 12.5 12 19l6.5-6.5"/></svg></span>
-    </div>
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <div class="facade"></div>
+    <div class="hero-glow"></div>
   </div>
-</section>
 
-<section class="band" aria-label="Dron pri delu">
-  <figure class="ph big"><img src="images/1.jpg" alt="Dron ARCOP med pranjem steklene fasade" loading="lazy"></figure>
-</section>
-
-<section class="climb" id="dron" aria-labelledby="climb-h">
-  <div class="stage">
-    <h2 id="climb-h">Kako poteka čiščenje objektov z dronom</h2>
-    <p class="intro">Dron je s cevjo povezan s črpalko na tleh, zato ima neomejeno vode in lahko dela, dokler objekt ni čist.</p>
-    <div class="ruler" aria-hidden="true">
-      <div class="ticks" id="ticks"></div>
-      <div class="mk" id="mk"><b><span id="alt">0</span><small>m</small></b></div>
-    </div>
-    <div class="chap">
-      <article class="on"><figure class="ph cimg"><img src="images/1.jpg" alt="Ogled objekta pred čiščenjem" loading="lazy"></figure><div class="ct">1 / 4</div><h3>Ogled objekta</h3><p>Pridemo na lokacijo, pregledamo objekt, izmerimo višino in določimo, kje bo stala ekipa na tleh. Na podlagi ogleda dobite ponudbo.</p></article>
-      <article><figure class="ph cimg"><img src="images/1.jpg" alt="Dron nanaša čistilo na fasado" loading="lazy"></figure><div class="ct">2 / 4</div><h3>Nanos čistila</h3><p>Dron po površini objekta razprši biorazgradljivo čistilo, ki zmehča prah, saje, alge in ptičje iztrebke.</p></article>
-      <article><figure class="ph cimg"><img src="images/1.jpg" alt="Dron pere fasado v pasovih" loading="lazy"></figure><div class="ct">3 / 4</div><h3>Pranje pas za pasom</h3><p>Dron se dviga in spušča v navpičnih pasovih, tako da vsak del objekta dobi enako količino vode.</p></article>
-      <article><figure class="ph cimg"><img src="images/1.jpg" alt="Spiranje stekla z demineralizirano vodo" loading="lazy"></figure><div class="ct">4 / 4</div><h3>Spiranje z demineralizirano vodo</h3><p>Zadnje spiranje opravimo z demineralizirano vodo. Na steklu se posuši brez vodnega kamna in madežev.</p></article>
-    </div>
-  </div>
-</section>
-
-<section class="services" id="storitve">
-  <div class="wrap">
-    <div class="sh">
-      <h2>Storitve</h2>
-      <p>Objekte čistimo z dronom, notranje prostore pa naša ekipa. Za vse tri storitve pripravimo ponudbo po ogledu.</p>
-    </div>
-    <div class="row main">
-      <h3>Čiščenje <em>z dronom</em></h3>
-      <div class="tx">Za površine, do katerih bi sicer potrebovali oder ali dvigalo.
-        <ul><li>Steklene fasade in okna na višini</li><li>Fasade iz kovine, kompozita in ometa</li><li>Sončne elektrarne</li><li>Strehe in nadstreški</li></ul>
-      <a href="#kontakt" class="lk ul">Pošljite povpraševanje</a>
-      </div>
-      <figure class="ph "><img src="images/1.jpg" alt="Dron med čiščenjem objekta" loading="lazy"></figure>
-    </div>
-    <div class="row">
-      <h3>Čiščenje poslovnih prostorov</h3>
-      <div class="tx">Redno čiščenje pisarn, trgovin, ordinacij in skupnih prostorov, po urniku, ki ga določite vi.
-        <ul><li>Dnevno, tedensko ali po dogovoru</li><li>Zjutraj, zvečer ali ob vikendih</li></ul>
-      <a href="#kontakt" class="lk ul">Pošljite povpraševanje</a>
-      </div>
-      <figure class="ph "><img src="images/1.jpg" alt="Čiščenje poslovnih prostorov" loading="lazy"></figure>
-    </div>
-    <div class="row">
-      <h3>Generalno čiščenje</h3>
-      <div class="tx">Temeljito čiščenje celotnega prostora, od oken in radiatorjev do talnih oblog.
-        <ul><li>Po gradnji ali prenovi</li><li>Pred vselitvijo ali po izselitvi</li><li>Enkrat ali dvakrat letno</li></ul>
-      <a href="#kontakt" class="lk ul">Pošljite povpraševanje</a>
-      </div>
-      <figure class="ph "><img src="images/1.jpg" alt="Generalno čiščenje prostora" loading="lazy"></figure>
-    </div>
-  </div>
-</section>
-
-<section class="statement" aria-label="Zakaj dron">
-  <div class="wrap">
-    <p id="stmt">Pri klasičnem čiščenju objekta ekipa najprej postavi oder ali pripelje dvigalo in zapre del pločnika. <strong>Z dronom začnemo čistiti isti dan, ko pridemo,</strong> ljudje pa lahko ves čas normalno hodijo v stavbo.</p>
-  </div>
-</section>
-
-<section class="what" aria-labelledby="what-h">
-  <div class="wrap">
-    <div class="sh"><h2 id="what-h">Kaj čistimo z dronom</h2><p>Vse površine, do katerih bi sicer potrebovali oder, dvigalo ali plezalca na vrvi.</p></div>
-    <div class="grid">
-      <div class="it"><figure class="ph"><img src="images/1.jpg" alt="Čiščenje fasade poslovne stavbe z dronom" loading="lazy"></figure><h3>Fasade</h3></div>
-      <div class="it"><figure class="ph"><img src="images/1.jpg" alt="Čiščenje steklene stene z dronom" loading="lazy"></figure><h3>Steklene površine</h3></div>
-      <div class="it"><figure class="ph"><img src="images/1.jpg" alt="Čiščenje sončne elektrarne z dronom" loading="lazy"></figure><h3>Sončne elektrarne</h3></div>
-      <div class="it"><figure class="ph"><img src="images/1.jpg" alt="Čiščenje strehe z dronom" loading="lazy"></figure><h3>Strehe in nadstreški</h3></div>
-    </div>
-  </div>
-</section>
-
-<section class="faq" id="vprasanja">
-  <div class="wrap">
-    <div class="sh"><h2>Pogosta vprašanja</h2></div>
-    <div>
-      <details class="qa"><summary>Ali curek vode lahko poškoduje steklo ali tesnila?<span class="pm"></span></summary><div class="a"><p>Za steklo uporabljamo nizek tlak in mehko čistilo. Visok tlak uporabimo samo na površinah, ki ga prenesejo, na primer na betonu ali strehi, in to vedno uskladimo z vami pred začetkom.</p></div></details>
-      <details class="qa"><summary>Kaj potrebujemo od vas na dan čiščenja?<span class="pm"></span></summary><div class="a"><p>Dostop do priključka za vodo in elektriko ter prostor ob stavbi, kjer stoji ekipa. Vse ostalo pripeljemo s seboj.</p></div></details>
-      <details class="qa"><summary>Ali dron leti tudi v dežju ali vetru?<span class="pm"></span></summary><div class="a"><p>V močnem vetru ali dežju ne letimo. Če je napoved slaba, termin prestavimo in vas o tem obvestimo dan prej.</p></div></details>
-      <details class="qa"><summary>Ali je treba za let drona pridobiti dovoljenje?<span class="pm"></span></summary><div class="a"><p>Za let nad mestom in ob stavbah so potrebna dovoljenja. Uredimo jih mi, vi nam pri tem le potrdite termin in naslov objekta.</p></div></details>
-    </div>
-  </div>
-</section>
-
-<section class="contact" id="kontakt">
-  <div class="wrap">
-    <div class="top">
-      <h2>Pošljite nam naslov objekta.</h2>
-      <div class="side">
-        <p>Napišite, kaj želite očistiti. Dogovorimo se za ogled in pripravimo ponudbo.</p>
-        <dl>
-          <dt>E-pošta</dt><dd><a href="mailto:info@arcop.si" class="ul">info@arcop.si</a></dd>
-          <dt>Telefon</dt><dd><a href="tel:+386000000000" class="ul">+386 00 000 000</a></dd>
-        </dl>
+  <div class="container hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Dronsko čiščenje objektov</p>
+      <h1>Čiščenje na višini<br><span class="blue">z dronsko<br>tehnologijo</span></h1>
+      <p class="lead">Peremo steklene fasade, okna na višini, sončne elektrarne in strehe z dronom <b class="yellow">DJI Matrice 400</b>. Pilot ostane na tleh, oder in zapora pločnika nista potrebna.</p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-yellow">Pridobi ponudbo <svg><use href="#i-arrow"/></svg></a>
+        <a href="#kontakt" class="btn btn-outline">Kontaktiraj nas <svg><use href="#i-arrow"/></svg></a>
       </div>
     </div>
-    <form id="f" novalidate>
-      <label class="c4">Ime in priimek<input name="ime" autocomplete="name" required><span class="err"></span></label>
-      <label class="c4">E-pošta<input name="email" type="email" autocomplete="email" required><span class="err"></span></label>
-      <label class="c4">Telefon<input name="tel" type="tel" autocomplete="tel"></label>
-      <label class="c6">Storitev
-        <select name="storitev"><option>Čiščenje z dronom</option><option>Čiščenje poslovnih prostorov</option><option>Generalno čiščenje</option></select>
-      </label>
-      <label class="c6">Naslov objekta<input name="naslov" autocomplete="street-address"></label>
-      <label class="c12">Kaj želite očistiti?<textarea name="opis"></textarea></label>
-      <div class="send"><button class="btn" type="submit">Pošljite povpraševanje</button><span class="msg" id="msg" role="status"></span></div>
+
+    <div class="hero-drone">
+      <model-viewer id="heroDrone"
+        src="models/cleaning-drone.glb"
+        alt="3D model čistilnega drona"
+        autoplay animation-name="HoverClean"
+        auto-rotate auto-rotate-delay="0" rotation-per-second="14deg"
+        interaction-prompt="none"
+        camera-orbit="35deg 72deg 80%" field-of-view="26deg"
+        environment-image="neutral" exposure="1.25"
+        shadow-intensity="0" loading="eager" reveal="auto">
+      </model-viewer>
+      <span class="drone-shadow" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <ul class="hero-features">
+      <li class="reveal"><svg><use href="#i-noscaffold"/></svg>Brez odrov</li>
+      <li class="reveal"><svg><use href="#i-shield"/></svg>Večja varnost</li>
+      <li class="reveal"><svg><use href="#i-coins"/></svg>Nižji stroški</li>
+      <li class="reveal"><svg><use href="#i-clock"/></svg>Hitra izvedba</li>
+      <li class="reveal"><svg><use href="#i-leaf"/></svg>Ekološko</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ STATEMENT (words light up on scroll) ============ -->
+<section class="statement" aria-label="Kako delamo">
+  <div class="container">
+    <p class="statement-text" data-scroll-words>Za čiščenje fasade ne potrebujete odra, dvigala ali zapore pločnika. <span class="yellow">Pilot ostane na tleh,</span> dron opravi delo na višini, ljudje pa ves čas normalno hodijo v stavbo.</p>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section services" id="storitve">
+  <div class="container">
+    <h2 class="section-title reveal">Naše <span class="blue">storitve</span></h2>
+    <div class="service-grid">
+      <article class="service-card reveal">
+        <div class="service-head"><svg><use href="#i-building"/></svg><h3>Čiščenje fasad</h3><p>Čistimo vse vrste fasad brez odrov in dvigal.</p></div>
+        <div class="service-media tex-facade" style="--img:url(img/fasade.jpg)"></div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-head"><svg><use href="#i-solar"/></svg><h3>Sončne elektrarne</h3><p>Odstranimo umazanijo in prah za boljšo učinkovitost panelov.</p></div>
+        <div class="service-media tex-solar" style="--img:url(img/soncne-elektrarne.jpg)"></div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-head"><svg><use href="#i-roof"/></svg><h3>Strehe</h3><p>Varno čiščenje vseh vrst streh in kritin.</p></div>
+        <div class="service-media tex-roof" style="--img:url(img/strehe.jpg)"></div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-head"><svg><use href="#i-factory"/></svg><h3>Industrijski objekti</h3><p>Hale, silosi, konstrukcije in proizvodni objekti.</p></div>
+        <div class="service-media tex-silo" style="--img:url(img/industrija.jpg)"></div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-head"><svg><use href="#i-glass"/></svg><h3>Steklene površine</h3><p>Visoke steklene stavbe in poslovni objekti.</p></div>
+        <div class="service-media tex-glass" style="--img:url(img/steklo.jpg)"></div>
+      </article>
+      <article class="service-card reveal">
+        <div class="service-head"><svg><use href="#i-inspect"/></svg><h3>Pregledi z dronom</h3><p>Vizualni pregledi objektov in težko dostopnih mest.</p></div>
+        <div class="service-media tex-inspect" style="--img:url(img/pregledi.jpg)"></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="section why">
+  <div class="container">
+    <h2 class="section-title reveal">Zakaj dron <span class="blue">namesto odra</span></h2>
+    <div class="why-grid">
+      <div class="why-item reveal"><svg><use href="#i-shield"/></svg><h3>Pilot ostane na tleh</h3><p>Nihče ne stoji na odru ali visi na vrvi. Dron upravljamo s tal ob stavbi.</p></div>
+      <div class="why-item reveal"><svg><use href="#i-clock"/></svg><h3>Začnemo isti dan</h3><p>Ni postavljanja odra ali dvigala. Ko pridemo, začnemo čistiti.</p></div>
+      <div class="why-item reveal"><svg><use href="#i-coins"/></svg><h3>Brez najema odra</h3><p>Ne plačate odra, dvigala ali zapore pločnika.</p></div>
+      <div class="why-item reveal"><svg><use href="#i-target"/></svg><h3>Neomejeno vode</h3><p>Dron je s cevjo povezan s črpalko na tleh, zato dela, dokler objekt ni čist.</p></div>
+      <div class="why-item reveal"><svg><use href="#i-leaf"/></svg><h3>Brez madežev</h3><p>Biorazgradljivo čistilo, zadnje spiranje pa z demineralizirano vodo.</p></div>
+      <div class="why-item reveal"><svg><use href="#i-drone"/></svg><h3>Dovoljenja uredimo mi</h3><p>Za let ob stavbah so potrebna dovoljenja. Vi potrdite le termin in naslov.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EQUIPMENT ============ -->
+<section class="section equipment" id="oprema">
+  <div class="container equipment-inner">
+    <div class="equipment-visual reveal">
+      <model-viewer id="equipDrone"
+        src="models/cleaning-drone.glb"
+        alt="3D model čistilnega drona DJI Matrice 400"
+        camera-orbit="-35deg 70deg 85%" field-of-view="26deg"
+        environment-image="neutral" exposure="1.25"
+        shadow-intensity="1" shadow-softness="1"
+        interaction-prompt="none" loading="lazy" reveal="auto">
+      </model-viewer>
+    </div>
+    <div class="equipment-copy reveal">
+      <p class="kicker">Naša oprema</p>
+      <h2>DJI <span class="yellow">Matrice 400</span></h2>
+      <p data-scroll-words>Letimo z industrijskim dronom DJI Matrice 400 s cevjo in šobo za pranje. Na steklu uporabljamo nizek tlak in mehko čistilo, višji tlak pa samo na betonu in strehah, kar vedno uskladimo z vami pred začetkom.</p>
+      <ul class="checklist">
+        <li class="reveal"><svg><use href="#i-check"/></svg>IP55 zaščita</li>
+        <li class="reveal"><svg><use href="#i-check"/></svg>45 min. čas letenja</li>
+        <li class="reveal"><svg><use href="#i-check"/></svg>Nosilnost do 6 kg</li>
+        <li class="reveal"><svg><use href="#i-check"/></svg>Napredni senzorji in kamere</li>
+        <li class="reveal"><svg><use href="#i-check"/></svg>RTK pozicioniranje za natančnost</li>
+        <li class="reveal"><svg><use href="#i-check"/></svg>Integrirani sistemi za pršenje in čiščenje</li>
+      </ul>
+      <a href="#kontakt" class="btn btn-outline">Več o opremi <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS / BEFORE-AFTER ============ -->
+<section class="section results" id="galerija">
+  <div class="container">
+    <h2 class="section-title reveal">Pred <span class="yellow">in po</span></h2>
+    <p class="section-sub reveal">Povlecite drsnik in primerjajte stanje pred in po čiščenju.</p>
+    <div class="ba-grid">
+      <div class="ba reveal" style="--pos:50%">
+        <div class="ba-after tex-glass" style="--img:url(img/pred-po-1.jpg)"></div>
+        <div class="ba-before tex-glass" style="--img:url(img/pred-po-1.jpg)"></div>
+        <span class="ba-tag ba-tag-l">Pred</span><span class="ba-tag ba-tag-r">Potem</span>
+        <span class="ba-handle"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Primerjava pred in po – okna">
+      </div>
+      <div class="ba reveal" style="--pos:50%">
+        <div class="ba-after tex-solar" style="--img:url(img/pred-po-2.jpg)"></div>
+        <div class="ba-before tex-solar" style="--img:url(img/pred-po-2.jpg)"></div>
+        <span class="ba-tag ba-tag-l">Pred</span><span class="ba-tag ba-tag-r">Potem</span>
+        <span class="ba-handle"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Primerjava pred in po – sončna elektrarna">
+      </div>
+      <div class="ba reveal" style="--pos:50%">
+        <div class="ba-after tex-roof" style="--img:url(img/pred-po-3.jpg)"></div>
+        <div class="ba-before tex-roof" style="--img:url(img/pred-po-3.jpg)"></div>
+        <span class="ba-tag ba-tag-l">Pred</span><span class="ba-tag ba-tag-r">Potem</span>
+        <span class="ba-handle"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Primerjava pred in po – streha">
+      </div>
+      <div class="ba reveal" style="--pos:50%">
+        <div class="ba-after tex-facade" style="--img:url(img/pred-po-4.jpg)"></div>
+        <div class="ba-before tex-facade" style="--img:url(img/pred-po-4.jpg)"></div>
+        <span class="ba-tag ba-tag-l">Pred</span><span class="ba-tag ba-tag-r">Potem</span>
+        <span class="ba-handle"></span>
+        <input type="range" min="0" max="100" value="50" aria-label="Primerjava pred in po – fasada">
+      </div>
+    </div>
+    <div class="center"><a href="#kontakt" class="btn btn-outline-yellow">Ogled galerije</a></div>
+  </div>
+</section>
+
+<!-- ============ ARCOP ============ -->
+<section class="section arcop" id="arcop">
+  <div class="container arcop-inner">
+    <div class="arcop-intro reveal">
+      <p class="kicker">Del podjetja</p>
+      <h2 class="arcop-logo">ARCOP</h2>
+      <p data-scroll-words>Drone Cleaning Solutions deluje v okviru podjetja <b class="yellow">ARCOP</b>. ARCOP čisti steklene fasade, okna na višini, sončne elektrarne in strehe z dronom, za podjetja pa čisti tudi poslovne prostore in opravlja generalna čiščenja.</p>
+      <p>Objekte čistimo z dronom, notranje prostore pa naša ekipa. Za vse storitve pripravimo ponudbo po ogledu, tako da imate za objekt zunaj in znotraj enega sogovornika.</p>
+      <a href="#kontakt" class="btn btn-outline">Povprašajte za vse storitve <svg><use href="#i-arrow"/></svg></a>
+    </div>
+
+    <div class="arcop-services">
+      <article class="arcop-card arcop-card--main reveal">
+        <span class="arcop-badge">Naša specialnost</span>
+        <svg class="arcop-icon"><use href="#i-drone"/></svg>
+        <div>
+          <h3>Čiščenje z dronom</h3>
+          <p>Fasade, steklene površine, sončne elektrarne in strehe, brez odrov, dvigal in zapor pločnika. Pilot ostane na tleh, čiščenje začnemo isti dan.</p>
+          <a href="#storitve" class="arcop-link">Vse dronske storitve <svg><use href="#i-arrow"/></svg></a>
+        </div>
+      </article>
+      <article class="arcop-card reveal">
+        <svg class="arcop-icon"><use href="#i-office"/></svg>
+        <h3>Čiščenje poslovnih prostorov</h3>
+        <p>Redno čiščenje pisarn, trgovin, ordinacij in skupnih prostorov po urniku, ki ga določite vi.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Dnevno, tedensko ali po dogovoru</li>
+          <li><svg><use href="#i-check"/></svg>Zjutraj, zvečer ali ob vikendih</li>
+        </ul>
+      </article>
+      <article class="arcop-card reveal">
+        <svg class="arcop-icon"><use href="#i-sparkle"/></svg>
+        <h3>Generalno čiščenje</h3>
+        <p>Temeljito čiščenje celotnega prostora, od oken in radiatorjev do talnih oblog.</p>
+        <ul>
+          <li><svg><use href="#i-check"/></svg>Po gradnji ali prenovi</li>
+          <li><svg><use href="#i-check"/></svg>Pred vselitvijo ali po izselitvi</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT + CONTACT ============ -->
+<section class="section contact-wrap" id="kontakt">
+  <div class="container contact-grid">
+    <div class="about" id="o-nas">
+      <h2 class="small-title blue">O nas</h2>
+      <p>Drone Cleaning Solutions je dronska enota podjetja <b>ARCOP</b>, specializirana za čiščenje na višini z uporabo napredne dronske tehnologije.</p>
+      <p>Pošljite nam naslov objekta in kaj želite očistiti. Dogovorimo se za ogled in pripravimo ponudbo.</p>
+    </div>
+
+    <div class="contact-info">
+      <h2 class="small-title">Kontaktirajte nas</h2>
+      <ul class="contact-list">
+        <li><svg><use href="#i-phone"/></svg><a href="tel:+38640123456">+386 40 123 456</a></li>
+        <li><svg><use href="#i-mail"/></svg><a href="mailto:info@dronecleaningsolutions.si">info@dronecleaningsolutions.si</a></li>
+        <li><svg><use href="#i-pin"/></svg><span>Celotna Slovenija in EU</span></li>
+      </ul>
+      <a href="#povprasevanje" class="btn btn-yellow btn-block">Pridobi brezplačno ponudbo</a>
+    </div>
+
+    <form class="contact-form" id="povprasevanje" novalidate>
+      <div class="field">
+        <label for="f-name">Ime in priimek</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <span class="err" aria-live="polite"></span>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="f-email">E-pošta</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required>
+          <span class="err" aria-live="polite"></span>
+        </div>
+        <div class="field">
+          <label for="f-phone">Telefon <i>(neobvezno)</i></label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="npr. 040 123 456">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-service">Storitev</label>
+        <select id="f-service" name="service">
+          <optgroup label="Čiščenje z dronom">
+            <option>Čiščenje fasad</option>
+            <option>Sončne elektrarne</option>
+            <option>Strehe</option>
+            <option>Industrijski objekti</option>
+            <option>Steklene površine</option>
+            <option>Pregledi z dronom</option>
+          </optgroup>
+          <optgroup label="Ostale storitve ARCOP">
+            <option>Čiščenje poslovnih prostorov</option>
+            <option>Generalno čiščenje</option>
+          </optgroup>
+        </select>
+      </div>
+      <div class="field">
+        <label for="f-msg">Sporočilo</label>
+        <textarea id="f-msg" name="message" rows="4" required placeholder="Lokacija, vrsta objekta, približna površina …"></textarea>
+        <span class="err" aria-live="polite"></span>
+      </div>
+      <button type="submit" class="btn btn-yellow btn-block">Pošlji povpraševanje</button>
+      <p class="form-note" id="formNote" aria-live="polite"></p>
     </form>
   </div>
 </section>
 </main>
 
-<footer>
-  <div class="wrap"><span>© <span id="yr">2026</span> ARCOP</span><span>Čiščenje z dronom · Poslovni prostori · Generalno čiščenje</span></div>
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="#top" class="logo logo-sm" aria-label="Na vrh">
+      <span class="logo-mark"><svg><use href="#i-drone"/></svg></span>
+      <span class="logo-text"><strong>DRONE</strong><small>CLEANING <em>SOLUTIONS</em></small></span>
+    </a>
+    <p class="copy">© <span id="year">2026</span> Drone Cleaning Solutions · del podjetja ARCOP. Vse pravice pridržane.</p>
+    <div class="social">
+      <a href="#" aria-label="Facebook"><svg><use href="#i-fb"/></svg></a>
+      <a href="#" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+      <a href="#" aria-label="TikTok"><svg><use href="#i-tt"/></svg></a>
+      <a href="#" aria-label="YouTube"><svg><use href="#i-yt"/></svg></a>
+      <a href="#" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+    </div>
+  </div>
+  <div class="info-bar">
+    <div class="container info-inner">
+      <div><svg><use href="#i-pin"/></svg><p><b>Lokacija</b>Celotna Slovenija in EU</p></div>
+      <div><svg><use href="#i-clock"/></svg><p><b>Delovni čas</b>Pon – Pet: 8.00 – 18.00</p></div>
+      <div><svg><use href="#i-phone"/></svg><p><b>Telefon</b><a href="tel:+38640123456">+386 40 123 456</a></p></div>
+      <div><svg><use href="#i-mail"/></svg><p><b>E-mail</b><a href="mailto:info@dronecleaningsolutions.si">info@dronecleaningsolutions.si</a></p></div>
+    </div>
+  </div>
 </footer>
 
-<script src="js/main.js"></script>
-<script src="vendor/three.min.js"></script>
-<script src="vendor/GLTFLoader.js"></script>
-<script src="js/drone-model.js"></script>
-<script src="js/drone.js" data-model="models/arcop-drone.glb"></script>
+<script src="script.js"></script>
 </body>
 </html>
